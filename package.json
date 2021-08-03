@@ -1,5 +1,5 @@
 {
-  "name": "drawflow",
+  "name": "flowdraw",
   "version": "0.0.46",
   "description": "Simple flow library",
   "main": "dist/drawflow.min.js",
@@ -19,7 +19,7 @@
     "flow-based-programming",
     "flowchart"
   ],
-  "author": "Jero soler",
+  "author": "Gunasekhar",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/jerosoler/Drawflow/issues"
