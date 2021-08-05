@@ -1,674 +1,820 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Ramco Json Generator</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>Ramco Json Generator</title>
-</head>
+  <body>
+    <script src="drawflow.min.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"
+      integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs="
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" type="text/css" href="src/drawflow.css" />
+    <link rel="stylesheet" type="text/css" href="docs/beautiful.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+      integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ="
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="https://unpkg.com/micromodal/dist/micromodal.min.js"></script>
 
-<body>
-  <script src="drawflow.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"
-    integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs=" crossorigin="anonymous"></script>
-  <link rel="stylesheet" type="text/css" href="src/drawflow.css" />
-  <link rel="stylesheet" type="text/css" href="docs/beautiful.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
-    integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous" />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-  <script src="https://unpkg.com/micromodal/dist/micromodal.min.js"></script>
-
-  <header>
-    <h2>Ramco ChatBot Flow Generator</h2>
-  </header>
-  <div class="wrapper">
-    <div class="col">
-      <div class="drag-drawflow" draggable="true" ondragstart="drag(event)" data-node="TextDialog">
-        <i class="fas fa-plus-circle"></i><span> TextDialog</span>
-      </div>
-      <div class="drag-drawflow" draggable="true" ondragstart="drag(event)" data-node="RvwApiDialog">
-        <i class="fas fa-plus-circle"></i><span> RvwApiDialog</span>
-      </div>
-      <div class="drag-drawflow" draggable="true" ondragstart="drag(event)" data-node="IfElseDialog">
-        <i class="fas fa-plus-circle"></i><span> IfElseDialog</span>
-      </div>
-      <div class="drag-drawflow" draggable="true" ondragstart="drag(event)" data-node="AdaptiveCardDialog">
-        <i class="fas fa-plus-circle"></i><span> AdaptiveCardDialog</span>
-      </div>
-      <div class="drag-drawflow" draggable="true" ondragstart="drag(event)" data-node="ForEachDialog">
-        <i class="fas fa-plus-circle"></i><span> ForEachDialog</span>
-      </div>
-      <div class="drag-drawflow" draggable="true" ondragstart="drag(event)" data-node="UpdateArrayDialog">
-        <i class="fas fa-plus-circle"></i><span> UpdateArrayDialog</span>
-      </div>
-      <div class="drag-drawflow" draggable="true" ondragstart="drag(event)" data-node="SetPropertyDialog">
-        <i class="fas fa-plus-circle"></i><span> SetPropertyDialog</span>
-      </div>
-      <div class="drag-drawflow" draggable="true" ondragstart="drag(event)" data-node="SwitchCaseDialog">
-        <i class="fas fa-plus-circle"></i><span> SwitchCaseDialog</span>
-      </div>
-      <div class="drag-drawflow" draggable="true" ondragstart="drag(event)" data-node="TextInputDialog">
-        <i class="fas fa-plus-circle"></i><span> TextInputDialog</span>
-      </div>
-      <div class="drag-drawflow" draggable="true" ondragstart="drag(event)" data-node="dbclick">
-        <i class="fas fa-plus-circle"></i><span> ChoiceInputDialog</span>
-      </div>
-      <!-- <div class="drag-drawflow" draggable="true" ondragstart="drag(event)" data-node="personalized">
+    <header>
+      <h2>Ramco ChatBot Flow Generator</h2>
+    </header>
+    <div class="wrapper">
+      <div class="col">
+        <div
+          class="drag-drawflow"
+          draggable="true"
+          ondragstart="drag(event)"
+          data-node="TextDialog"
+        >
+          <i class="fas fa-plus-circle"></i><span> TextDialog</span>
+        </div>
+        <div
+          class="drag-drawflow"
+          draggable="true"
+          ondragstart="drag(event)"
+          data-node="RvwApiDialog"
+        >
+          <i class="fas fa-plus-circle"></i><span> RvwApiDialog</span>
+        </div>
+        <div
+          class="drag-drawflow"
+          draggable="true"
+          ondragstart="drag(event)"
+          data-node="IfElseDialog"
+        >
+          <i class="fas fa-plus-circle"></i><span> IfElseDialog</span>
+        </div>
+        <div
+          class="drag-drawflow"
+          draggable="true"
+          ondragstart="drag(event)"
+          data-node="AdaptiveCardDialog"
+        >
+          <i class="fas fa-plus-circle"></i><span> AdaptiveCardDialog</span>
+        </div>
+        <div
+          class="drag-drawflow"
+          draggable="true"
+          ondragstart="drag(event)"
+          data-node="ForEachDialog"
+        >
+          <i class="fas fa-plus-circle"></i><span> ForEachDialog</span>
+        </div>
+        <div
+          class="drag-drawflow"
+          draggable="true"
+          ondragstart="drag(event)"
+          data-node="UpdateArrayDialog"
+        >
+          <i class="fas fa-plus-circle"></i><span> UpdateArrayDialog</span>
+        </div>
+        <div
+          class="drag-drawflow"
+          draggable="true"
+          ondragstart="drag(event)"
+          data-node="SetPropertyDialog"
+        >
+          <i class="fas fa-plus-circle"></i><span> SetPropertyDialog</span>
+        </div>
+        <div
+          class="drag-drawflow"
+          draggable="true"
+          ondragstart="drag(event)"
+          data-node="SwitchCaseDialog"
+        >
+          <i class="fas fa-plus-circle"></i><span> SwitchCaseDialog</span>
+        </div>
+        <div
+          class="drag-drawflow"
+          draggable="true"
+          ondragstart="drag(event)"
+          data-node="TextInputDialog"
+        >
+          <i class="fas fa-plus-circle"></i><span> TextInputDialog</span>
+        </div>
+        <div
+          class="drag-drawflow"
+          draggable="true"
+          ondragstart="drag(event)"
+          data-node="ChoiceInputDialog"
+        >
+          <i class="fas fa-plus-circle"></i><span> ChoiceInputDialog</span>
+        </div>
+        <!-- <div class="drag-drawflow" draggable="true" ondragstart="drag(event)" data-node="personalized">
         <i class=""></i><span> ADDED</span>
       </div>
       <div class="drag-drawflow" draggable="true" ondragstart="drag(event)" data-node="dbclick">
         <i class="fas fa-plus-circle"></i><span> ADD later</span>
       </div> -->
-    </div>
-    <div class="col-right">
-      <div class="menu">
-        <ul>
-          <li onclick="editor.changeModule('Home'); changeModule(event);" class="selected">
-            Home
-          </li>
-          <li onclick="editor.changeModule('Other'); changeModule(event);">
-            Other Module
-          </li>
-        </ul>
       </div>
-      <div id="drawflow" ondrop="drop(event)" ondragover="allowDrop(event)">
-        <div class="btn-export" onclick="Swal.fire({ title: 'Export',
+      <div class="col-right">
+        <div class="menu">
+          <ul>
+            <li
+              onclick="editor.changeModule('Home'); changeModule(event);"
+              class="selected"
+            >
+              Home
+            </li>
+            <li onclick="editor.changeModule('Other'); changeModule(event);">
+              Other Module
+            </li>
+          </ul>
+        </div>
+        <div id="drawflow" ondrop="drop(event)" ondragover="allowDrop(event)">
+          <div
+            class="btn-export"
+            onclick="Swal.fire({ title: 'Export',
         html: '<pre><code>'+JSON.stringify(editor.export(), null,4)+'</code></pre>'
-        })">
-          Export
-        </div>
-        <div class="btn-clear" onclick="editor.clearModuleSelected()">
-          Clear
-        </div>
-        <div class="btn-lock">
-          <i id="lock" class="fas fa-lock" onclick="editor.editor_mode='fixed'; changeMode('lock');"></i>
-          <i id="unlock" class="fas fa-lock-open" onclick="editor.editor_mode='edit'; changeMode('unlock');"
-            style="display: none"></i>
-        </div>
-        <div class="bar-zoom">
-          <i class="fas fa-search-minus" onclick="editor.zoom_out()"></i>
-          <i class="fas fa-search" onclick="editor.zoom_reset()"></i>
-          <i class="fas fa-search-plus" onclick="editor.zoom_in()"></i>
+        })"
+          >
+            Export
+          </div>
+          <div class="btn-clear" onclick="editor.clearModuleSelected()">
+            Clear
+          </div>
+          <div class="btn-lock">
+            <i
+              id="lock"
+              class="fas fa-lock"
+              onclick="editor.editor_mode='fixed'; changeMode('lock');"
+            ></i>
+            <i
+              id="unlock"
+              class="fas fa-lock-open"
+              onclick="editor.editor_mode='edit'; changeMode('unlock');"
+              style="display: none"
+            ></i>
+          </div>
+          <div class="bar-zoom">
+            <i class="fas fa-search-minus" onclick="editor.zoom_out()"></i>
+            <i class="fas fa-search" onclick="editor.zoom_reset()"></i>
+            <i class="fas fa-search-plus" onclick="editor.zoom_in()"></i>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <script>
-    var id = document.getElementById("drawflow");
-    const editor = new Drawflow(id);
-    editor.reroute = true;
-    editor.reroute_fix_curvature = true;
-    editor.force_first_input = false;
+    <script>
+      var id = document.getElementById("drawflow");
+      const editor = new Drawflow(id);
+      editor.reroute = true;
+      editor.reroute_fix_curvature = true;
+      editor.force_first_input = false;
 
-    /*
+      /*
   editor.createCurvature = function(start_pos_x, start_pos_y, end_pos_x, end_pos_y, curvature_value, type) {
     var center_x = ((end_pos_x - start_pos_x)/2)+start_pos_x;
     return ' M ' + start_pos_x + ' ' + start_pos_y + ' L '+ center_x +' ' +  start_pos_y  + ' L ' + center_x + ' ' +  end_pos_y  + ' L ' + end_pos_x + ' ' + end_pos_y;
   }*/
 
-    editor.createCurvature = function (
-      start_pos_x,
-      start_pos_y,
-      end_pos_x,
-      end_pos_y,
-      curvature_value,
-      type
-    ) {
-      var line_x = start_pos_x;
-      var line_y = start_pos_y;
-      var x = end_pos_x;
-      var y = end_pos_y;
-      var curvature = curvature_value;
-      //type openclose open close other
-      switch (type) {
-        case "open":
-          if (start_pos_x >= end_pos_x) {
-            var hx1 = line_x + Math.abs(x - line_x) * curvature;
-            var hx2 = x - Math.abs(x - line_x) * (curvature * -1);
-            return (
-              " M " +
-              line_x +
-              " " +
-              line_y +
-              " q " +
-              (x - line_x) / 2 +
-              " " +
-              (y - line_y) +
-              " " +
-              (x - line_x) +
-              " " +
-              (y - line_y)
-            );
-          } else {
-            var hx1 = line_x + Math.abs(x - line_x) * curvature;
-            var hx2 = x - Math.abs(x - line_x) * curvature;
-            return (
-              " M " +
-              line_x +
-              " " +
-              line_y +
-              " q " +
-              (x - line_x) / 2 +
-              " " +
-              (y - line_y) +
-              " " +
-              (x - line_x) +
-              " " +
-              (y - line_y)
-            );
-          }
-          //return ' M '+ line_x +' '+ line_y +' C '+ hx1 +' '+ line_y +' '+ hx2 +' ' + y +' ' + x +'  ' + y;
+      editor.createCurvature = function (
+        start_pos_x,
+        start_pos_y,
+        end_pos_x,
+        end_pos_y,
+        curvature_value,
+        type
+      ) {
+        var line_x = start_pos_x;
+        var line_y = start_pos_y;
+        var x = end_pos_x;
+        var y = end_pos_y;
+        var curvature = curvature_value;
+        //type openclose open close other
+        switch (type) {
+          case "open":
+            if (start_pos_x >= end_pos_x) {
+              var hx1 = line_x + Math.abs(x - line_x) * curvature;
+              var hx2 = x - Math.abs(x - line_x) * (curvature * -1);
+              return (
+                " M " +
+                line_x +
+                " " +
+                line_y +
+                " q " +
+                (x - line_x) / 2 +
+                " " +
+                (y - line_y) +
+                " " +
+                (x - line_x) +
+                " " +
+                (y - line_y)
+              );
+            } else {
+              var hx1 = line_x + Math.abs(x - line_x) * curvature;
+              var hx2 = x - Math.abs(x - line_x) * curvature;
+              return (
+                " M " +
+                line_x +
+                " " +
+                line_y +
+                " q " +
+                (x - line_x) / 2 +
+                " " +
+                (y - line_y) +
+                " " +
+                (x - line_x) +
+                " " +
+                (y - line_y)
+              );
+            }
+            //return ' M '+ line_x +' '+ line_y +' C '+ hx1 +' '+ line_y +' '+ hx2 +' ' + y +' ' + x +'  ' + y;
 
-          break;
-        case "close":
-          if (start_pos_x >= end_pos_x) {
-            var hx1 = line_x + Math.abs(x - line_x) * (curvature * -1);
-            var hx2 = x - Math.abs(x - line_x) * curvature;
-            return (
-              " M " +
-              line_x +
-              " " +
-              line_y +
-              " q " +
-              (x - line_x) / 2 +
-              " " +
-              (y - line_y) +
-              " " +
-              (x - line_x) +
-              " " +
-              (y - line_y)
-            );
-          } else {
+            break;
+          case "close":
+            if (start_pos_x >= end_pos_x) {
+              var hx1 = line_x + Math.abs(x - line_x) * (curvature * -1);
+              var hx2 = x - Math.abs(x - line_x) * curvature;
+              return (
+                " M " +
+                line_x +
+                " " +
+                line_y +
+                " q " +
+                (x - line_x) / 2 +
+                " " +
+                (y - line_y) +
+                " " +
+                (x - line_x) +
+                " " +
+                (y - line_y)
+              );
+            } else {
+              var hx1 = line_x + Math.abs(x - line_x) * curvature;
+              var hx2 = x - Math.abs(x - line_x) * curvature;
+              return (
+                " M " +
+                line_x +
+                " " +
+                line_y +
+                " q " +
+                (x - line_x) / 2 +
+                " " +
+                (y - line_y) +
+                " " +
+                (x - line_x) +
+                " " +
+                (y - line_y)
+              );
+            }
+            //return ' M '+ line_x +' '+ line_y +' C '+ hx1 +' '+ line_y +' '+ hx2 +' ' + y +' ' + x +'  ' + y;
+            //return ' M '+ line_x +' '+ line_y + ' q ' + (x-line_x)/2 + ' ' + (y-line_y) + ' '   + (x-line_x) +' ' + (y-line_y) ;
+            break;
+          case "other":
+            if (start_pos_x >= end_pos_x) {
+              var hx1 = line_x + Math.abs(x - line_x) * (curvature * -1);
+              var hx2 = x - Math.abs(x - line_x) * (curvature * -1);
+              return (
+                " M " +
+                line_x +
+                " " +
+                line_y +
+                " q " +
+                (x - line_x) / 2 +
+                " " +
+                (y - line_y) +
+                " " +
+                (x - line_x) +
+                " " +
+                (y - line_y)
+              );
+            } else {
+              var hx1 = line_x + Math.abs(x - line_x) * curvature;
+              var hx2 = x - Math.abs(x - line_x) * curvature;
+              return (
+                " M " +
+                line_x +
+                " " +
+                line_y +
+                " q " +
+                (x - line_x) / 2 +
+                " " +
+                (y - line_y) +
+                " " +
+                (x - line_x) +
+                " " +
+                (y - line_y)
+              );
+            }
+            //return ' M '+ line_x +' '+ line_y +' C '+ hx1 +' '+ line_y +' '+ hx2 +' ' + y +' ' + x +'  ' + y;
+            //return ' M '+ line_x +' '+ line_y + ' q ' + (x-line_x)/2 + ' ' + (y-line_y) + ' '   + (x-line_x) +' ' + (y-line_y) ;
+            break;
+          default:
             var hx1 = line_x + Math.abs(x - line_x) * curvature;
             var hx2 = x - Math.abs(x - line_x) * curvature;
+
+            //return ' M '+ line_x +' '+ line_y +' C '+ hx1 +' '+ line_y +' '+ hx2 +' ' + y +' ' + x +'  ' + y;
             return (
               " M " +
               line_x +
               " " +
               line_y +
-              " q " +
-              (x - line_x) / 2 +
+              " C " +
+              hx1 +
               " " +
-              (y - line_y) +
+              line_y +
               " " +
-              (x - line_x) +
+              hx2 +
               " " +
-              (y - line_y)
+              y +
+              " " +
+              x +
+              "  " +
+              y
             );
-          }
-          //return ' M '+ line_x +' '+ line_y +' C '+ hx1 +' '+ line_y +' '+ hx2 +' ' + y +' ' + x +'  ' + y;
           //return ' M '+ line_x +' '+ line_y + ' q ' + (x-line_x)/2 + ' ' + (y-line_y) + ' '   + (x-line_x) +' ' + (y-line_y) ;
-          break;
-        case "other":
-          if (start_pos_x >= end_pos_x) {
-            var hx1 = line_x + Math.abs(x - line_x) * (curvature * -1);
-            var hx2 = x - Math.abs(x - line_x) * (curvature * -1);
-            return (
-              " M " +
-              line_x +
-              " " +
-              line_y +
-              " q " +
-              (x - line_x) / 2 +
-              " " +
-              (y - line_y) +
-              " " +
-              (x - line_x) +
-              " " +
-              (y - line_y)
-            );
-          } else {
-            var hx1 = line_x + Math.abs(x - line_x) * curvature;
-            var hx2 = x - Math.abs(x - line_x) * curvature;
-            return (
-              " M " +
-              line_x +
-              " " +
-              line_y +
-              " q " +
-              (x - line_x) / 2 +
-              " " +
-              (y - line_y) +
-              " " +
-              (x - line_x) +
-              " " +
-              (y - line_y)
-            );
-          }
-          //return ' M '+ line_x +' '+ line_y +' C '+ hx1 +' '+ line_y +' '+ hx2 +' ' + y +' ' + x +'  ' + y;
-          //return ' M '+ line_x +' '+ line_y + ' q ' + (x-line_x)/2 + ' ' + (y-line_y) + ' '   + (x-line_x) +' ' + (y-line_y) ;
-          break;
-        default:
-          var hx1 = line_x + Math.abs(x - line_x) * curvature;
-          var hx2 = x - Math.abs(x - line_x) * curvature;
+        }
+      };
 
-          //return ' M '+ line_x +' '+ line_y +' C '+ hx1 +' '+ line_y +' '+ hx2 +' ' + y +' ' + x +'  ' + y;
-          return (
-            " M " +
-            line_x +
-            " " +
-            line_y +
-            " C " +
-            hx1 +
-            " " +
-            line_y +
-            " " +
-            hx2 +
-            " " +
-            y +
-            " " +
-            x +
-            "  " +
-            y
-          );
-        //return ' M '+ line_x +' '+ line_y + ' q ' + (x-line_x)/2 + ' ' + (y-line_y) + ' '   + (x-line_x) +' ' + (y-line_y) ;
-      }
-    };
-
-    editor.drawflow = {
-      drawflow: {
-        Home: {
-          data: {},
+      editor.drawflow = {
+        drawflow: {
+          Home: {
+            data: {},
+          },
+          Other: {
+            data: {},
+          },
         },
-        Other: {
-          data: {},
-        },
-      },
-    };
-    editor.start();
+      };
+      editor.start();
 
-    // Events!
-    editor.on("nodeCreated", function (id) {
-      console.log("Node created " + id);
-    });
+      // Events!
+      editor.on("nodeCreated", function (id) {
+        console.log("Node created " + id);
+      });
 
-    editor.on("nodeRemoved", function (id) {
-      console.log("Node removed " + id);
-    });
+      editor.on("nodeRemoved", function (id) {
+        console.log("Node removed " + id);
+      });
 
-    editor.on("nodeSelected", function (id) {
-      console.log("Node selected " + id);
-    });
+      editor.on("nodeSelected", function (id) {
+        console.log("Node selected " + id);
+      });
 
-    editor.on("moduleCreated", function (name) {
-      console.log("Module Created " + name);
-    });
+      editor.on("moduleCreated", function (name) {
+        console.log("Module Created " + name);
+      });
 
-    editor.on("moduleChanged", function (name) {
-      console.log("Module Changed " + name);
-    });
+      editor.on("moduleChanged", function (name) {
+        console.log("Module Changed " + name);
+      });
 
-    editor.on("connectionCreated", function (connection) {
-      console.log("Connection created");
-      console.log(connection);
-    });
+      editor.on("connectionCreated", function (connection) {
+        console.log("Connection created");
+        console.log(connection);
+      });
 
-    editor.on("connectionRemoved", function (connection) {
-      console.log("Connection removed");
+      editor.on("connectionRemoved", function (connection) {
+        console.log("Connection removed");
 
-      console.log(connection);
-    });
-    /*
+        console.log(connection);
+      });
+      /*
   editor.on('mouseMove', function(position) {
     console.log('Position mouse x:' + position.x + ' y:'+ position.y);
   })
 */
-    editor.on("nodeMoved", function (id) {
-      console.log("Node moved " + id);
-    });
+      editor.on("nodeMoved", function (id) {
+        console.log("Node moved " + id);
+      });
 
-    editor.on("zoom", function (zoom) {
-      console.log("Zoom level " + zoom);
-    });
+      editor.on("zoom", function (zoom) {
+        console.log("Zoom level " + zoom);
+      });
 
-    editor.on("translate", function (position) {
-      console.log("Translate x:" + position.x + " y:" + position.y);
-    });
+      editor.on("translate", function (position) {
+        console.log("Translate x:" + position.x + " y:" + position.y);
+      });
 
-    editor.on("addReroute", function (id) {
-      console.log("Reroute added " + id);
-    });
+      editor.on("addReroute", function (id) {
+        console.log("Reroute added " + id);
+      });
 
-    editor.on("removeReroute", function (id) {
-      console.log("Reroute removed " + id);
-    });
-    /* DRAG EVENT */
+      editor.on("removeReroute", function (id) {
+        console.log("Reroute removed " + id);
+      });
+      /* DRAG EVENT */
 
-    /* Mouse and Touch Actions */
+      /* Mouse and Touch Actions */
 
-    var elements = document.getElementsByClassName("drag-drawflow");
-    for (var i = 0; i < elements.length; i++) {
-      elements[i].addEventListener("touchend", drop, false);
-      elements[i].addEventListener("touchmove", positionMobile, false);
-      elements[i].addEventListener("touchstart", drag, false);
-    }
-
-    var mobile_item_selec = "";
-    var mobile_last_move = null;
-    function positionMobile(ev) {
-      mobile_last_move = ev;
-    }
-
-    function allowDrop(ev) {
-      ev.preventDefault();
-    }
-
-    function drag(ev) {
-      if (ev.type === "touchstart") {
-        mobile_item_selec = ev.target
-          .closest(".drag-drawflow")
-          .getAttribute("data-node");
-      } else {
-        ev.dataTransfer.setData("node", ev.target.getAttribute("data-node"));
+      var elements = document.getElementsByClassName("drag-drawflow");
+      for (var i = 0; i < elements.length; i++) {
+        elements[i].addEventListener("touchend", drop, false);
+        elements[i].addEventListener("touchmove", positionMobile, false);
+        elements[i].addEventListener("touchstart", drag, false);
       }
-    }
 
-    function drop(ev) {
-      if (ev.type === "touchend") {
-        var parentdrawflow = document
-          .elementFromPoint(
-            mobile_last_move.touches[0].clientX,
-            mobile_last_move.touches[0].clientY
-          )
-          .closest("#drawflow");
-        if (parentdrawflow != null) {
-          addNodeToDrawFlow(
-            mobile_item_selec,
-            mobile_last_move.touches[0].clientX,
-            mobile_last_move.touches[0].clientY
-          );
-        }
-        mobile_item_selec = "";
-      } else {
+      var mobile_item_selec = "";
+      var mobile_last_move = null;
+      function positionMobile(ev) {
+        mobile_last_move = ev;
+      }
+
+      function allowDrop(ev) {
         ev.preventDefault();
-        var data = ev.dataTransfer.getData("node");
-        addNodeToDrawFlow(data, ev.clientX, ev.clientY);
       }
-    }
 
-    function addNodeToDrawFlow(name, pos_x, pos_y) {
-      if (editor.editor_mode === "fixed") {
-        return false;
+      function drag(ev) {
+        if (ev.type === "touchstart") {
+          mobile_item_selec = ev.target
+            .closest(".drag-drawflow")
+            .getAttribute("data-node");
+        } else {
+          ev.dataTransfer.setData("node", ev.target.getAttribute("data-node"));
+        }
       }
-      pos_x =
-        pos_x *
-        (editor.precanvas.clientWidth /
-          (editor.precanvas.clientWidth * editor.zoom)) -
-        editor.precanvas.getBoundingClientRect().x *
-        (editor.precanvas.clientWidth /
-          (editor.precanvas.clientWidth * editor.zoom));
-      pos_y =
-        pos_y *
-        (editor.precanvas.clientHeight /
-          (editor.precanvas.clientHeight * editor.zoom)) -
-        editor.precanvas.getBoundingClientRect().y *
-        (editor.precanvas.clientHeight /
-          (editor.precanvas.clientHeight * editor.zoom));
 
-      switch (name) {
-        case "TextDialog":
-          var TextDialog = `
+      function drop(ev) {
+        if (ev.type === "touchend") {
+          var parentdrawflow = document
+            .elementFromPoint(
+              mobile_last_move.touches[0].clientX,
+              mobile_last_move.touches[0].clientY
+            )
+            .closest("#drawflow");
+          if (parentdrawflow != null) {
+            addNodeToDrawFlow(
+              mobile_item_selec,
+              mobile_last_move.touches[0].clientX,
+              mobile_last_move.touches[0].clientY
+            );
+          }
+          mobile_item_selec = "";
+        } else {
+          ev.preventDefault();
+          var data = ev.dataTransfer.getData("node");
+          addNodeToDrawFlow(data, ev.clientX, ev.clientY);
+        }
+      }
+
+      function addNodeToDrawFlow(name, pos_x, pos_y) {
+        if (editor.editor_mode === "fixed") {
+          return false;
+        }
+        pos_x =
+          pos_x *
+            (editor.precanvas.clientWidth /
+              (editor.precanvas.clientWidth * editor.zoom)) -
+          editor.precanvas.getBoundingClientRect().x *
+            (editor.precanvas.clientWidth /
+              (editor.precanvas.clientWidth * editor.zoom));
+        pos_y =
+          pos_y *
+            (editor.precanvas.clientHeight /
+              (editor.precanvas.clientHeight * editor.zoom)) -
+          editor.precanvas.getBoundingClientRect().y *
+            (editor.precanvas.clientHeight /
+              (editor.precanvas.clientHeight * editor.zoom));
+
+        switch (name) {
+          case "TextDialog":
+            var TextDialog = `
         <div>
           <div class="title-box"><i class=""></i> TextDialog</div>
-        </div>
-        `;
-          editor.addNode(
-            "TextDialog",
-            1,
-            1,
-            pos_x,
-            pos_y,
-            "TextDialog",
-            {},
-            TextDialog
-          );
-          break;
-        case "RvwApiDialog":
-          var RvwApiDialog = `
-          <div>
-            <div class="title-box"><i class=""></i> RvwApiDialog</div>
-          </div>
-          `;
-          editor.addNode(
-            "RvwApiDialog",
-            1,
-            1,
-            pos_x,
-            pos_y,
-            "RvwApiDialog",
-            {},
-            RvwApiDialog
-          );
-          break;
-        case "IfElseDialog":
-          var IfElseDialog = `
-          <div>
-            <div class="title-box"><i class=""></i> IfElseDialog</div>
-          </div>
-          `;
-          editor.addNode(
-            "IfElseDialog",
-            1,
-            1,
-            pos_x,
-            pos_y,
-            "IfElseDialog",
-            { name: "" },
-            IfElseDialog
-          );
-          break;
-        case "AdaptiveCardDialog":
-          var AdaptiveCardDialog = `
-          <div>
-            <div class="title-box"><i class=""></i> AdaptiveCardDialog</div>
-          </div>
-          `;
-          editor.addNode(
-            "AdaptiveCardDialog",
-            1,
-            1,
-            pos_x,
-            pos_y,
-            "AdaptiveCardDialog",
-            { channel: "channel_3" },
-            AdaptiveCardDialog
-          );
-          break;
-        case "ForEachDialog":
-          var ForEachDialog = `
-          <div>
-            <div class="title-box"><i class=""></i> ForEachDialog</div>
-          </div>
-          `;
-          editor.addNode(
-            "ForEachDialog",
-            1,
-            1,
-            pos_x,
-            pos_y,
-            "ForEachDialog",
-            { db: { dbname: "", key: "" } },
-            ForEachDialog
-          );
-          break;
-        case "UpdateArrayDialog":
-          var UpdateArrayDialog = `
-            <div>
-              <div class="title-box"><i class=""></i> UpdateArrayDialog </div>
-            </div>
-            `;
-          editor.addNode(
-            "UpdateArrayDialog",
-            1,
-            1,
-            pos_x,
-            pos_y,
-            "UpdateArrayDialog",
-            {},
-            UpdateArrayDialog
-          );
-          break;
-        case "SetPropertyDialog":
-          var SetPropertyDialog = `
-            <div>
-              <div class="title-box"><i class=""></i> SetPropertyDialog</div>
-            </div>
-            `;
-          editor.addNode(
-            "SetPropertyDialog",
-            1,
-            0,
-            pos_x,
-            pos_y,
-            "SetPropertyDialog",
-            {},
-            SetPropertyDialog
-          );
-          break;
-        case "SwitchCaseDialog":
-          var SwitchCaseDialog = `
-            <div>
-              <div class="title-box"><i class=""></i> SwitchCaseDialog </div>
-            </div>
-            `;
-          editor.addNode(
-            "SwitchCaseDialog",
-            1,
-            1,
-            pos_x,
-            pos_y,
-            "SwitchCaseDialog",
-            {},
-            SwitchCaseDialog
-          );
-          break;
-
-        case "TextInputDialog":
-          var TextInputDialog = `
-            <div>
-              <div class="title-box"><i class=""></i> TextInputDialog </div>
-            </div>
-            `;
-          editor.addNode(
-            "TextInputDialog",
-            1,
-            1,
-            pos_x,
-            pos_y,
-            "TextInputDialog",
-            {},
-            TextInputDialog
-          );
-          break;
-        case "ChoiceInputDialog":
-          var ChoiceInputDialog = `
-            <div>
-              <div class="title-box">
-                ChoiceInputDialog!
-              </div>
-            </div>
-            `;
-          editor.addNode(
-            "ChoiceInputDialog",
-            1,
-            1,
-            pos_x,
-            pos_y,
-            "ChoiceInputDialog",
-            {},
-            ChoiceInputDialog
-          );
-          break;
-        case "personalized":
-          var personalized = `
-            <div>
-              Personalized
-            </div>
-            `;
-          editor.addNode(
-            "personalized",
-            1,
-            1,
-            pos_x,
-            pos_y,
-            "personalized",
-            {},
-            personalized
-          );
-          break;
-          case 'dbclick':
-            var dbclick = `
-            <div>
-            <div class="title-box"><i class="fas fa-mouse"></i> Db Click</div>
-              <div class="box dbclickbox" ondblclick="showpopup(event)">
-                Db Click here
+          <div class="box dbclickbox" ondblclick="showpopup(event)"> Edit
+                
                 <div class="modal" style="display:none">
                   <div class="modal-content">
                     <span class="close" onclick="closemodal(event)">&times;</span>
-                    Change your variable {name} !
+                    Question:
+                    <input type="text" df-question required>
+                  </div>
+                </div>
+        </div>
+        `;
+            editor.addNode(
+              "TextDialog",
+              1,
+              1,
+              pos_x,
+              pos_y,
+              "TextDialog",
+              {},
+              TextDialog
+            );
+            break;
+          case "RvwApiDialog":
+            var RvwApiDialog = `
+          <div>
+            <div class="title-box"><i class=""></i> RvwApiDialog</div>
+            <div class="box dbclickbox" ondblclick="showpopup(event)"> Edit
+                
+                <div class="modal" style="display:none">
+                  <div class="modal-content">
+                    <span class="close" onclick="closemodal(event)">&times;</span>
+                    EndPoint:
+                    <input type="text" placeholder="timesheet_fetch_api" df-endpoints required>
+                    <br>
+                    <br>
+                    METHOD  :
+                    <select df-method>
+                <option value="GET">GET</option>
+                <option value="PUT">PUT</option>
+                <option value="POST">POST</option>
+                <option value="DELETE">DELETE</option>
+              </select>
+                  </div>
+                </div>
+          </div>
+          `;
+            editor.addNode(
+              "RvwApiDialog",
+              1,
+              1,
+              pos_x,
+              pos_y,
+              "RvwApiDialog",
+              {},
+              RvwApiDialog
+            );
+            break;
+          case "IfElseDialog":
+            var IfElseDialog = `
+          <div>
+            <div class="title-box"><i class=""></i> IfElseDialog</div>
+            <div class="box dbclickbox" ondblclick="showpopup(event)"> Edit
+                
+                <div class="modal" style="display:none">
+                  <div class="modal-content">
+                    <span class="close" onclick="closemodal(event)">&times;</span>
+                    Condition:
+                    <input type="text" placeholder="{result.action == 'View Details'}" df-condition required>
+                  </div>
+                </div>
+          </div>
+          `;
+            editor.addNode(
+              "IfElseDialog",
+              1,
+              1,
+              pos_x,
+              pos_y,
+              "IfElseDialog",
+              { condition :"${result.action == 'View Details'}" },
+              IfElseDialog
+            );
+            break;
+          case "AdaptiveCardDialog":
+            var AdaptiveCardDialog = `
+          <div>
+            <div class="title-box"><i class=""></i> AdaptiveCardDialog</div>
+            <div class="box dbclickbox" ondblclick="showpopup(event)"> Edit
+                
+                <div class="modal" style="display:none">
+                  <div class="modal-content">
+                    <span class="close" onclick="closemodal(event)">&times;</span>
+                    Question:
+                    <input type="text" df-question>
+                    <br><br>
+                    answer:
+                    <input type="text" df-answer>
+                  </div>
+                </div>
+          </div>
+          `;
+            editor.addNode(
+              "AdaptiveCardDialog",
+              1,
+              1,
+              pos_x,
+              pos_y,
+              "AdaptiveCardDialog",
+              {},
+              AdaptiveCardDialog
+            );
+            break;
+          case "ForEachDialog":
+            var ForEachDialog = `
+          <div>
+            <div class="title-box"><i class=""></i> ForEachDialog</div>
+            <div class="box dbclickbox" ondblclick="showpopup(event)"> Edit
+                
+              <div class="modal" style="display:none">
+                  <div class="modal-content">
+                    <span class="close" onclick="closemodal(event)">&times;</span>
+                    Data    :
+                    <input type="text" df-data>
+                    <br><br>
+                    Action  :
+                    <input type="text" df-answer>
+                  </div>
+                </div>
+          </div>
+          `;
+            editor.addNode(
+              "ForEachDialog",
+              1,
+              1,
+              pos_x,
+              pos_y,
+              "ForEachDialog",
+              { db: { dbname: "", key: "" } },
+              ForEachDialog
+            );
+            break;
+          case "UpdateArrayDialog":
+            var UpdateArrayDialog = `
+            <div>
+              <div class="title-box"><i class=""></i> UpdateArrayDialog </div>
+              <div class="box dbclickbox" ondblclick="showpopup(event)"> Edit
+                
+                <div class="modal" style="display:none">
+                  <div class="modal-content">
+                    <span class="close" onclick="closemodal(event)">&times;</span>
+                    Update Type:
+                    <input type="text" df-updateType>
+                    <br><br>
+                    Value of update:
+                    <input type="text" df-value>
+                  </div>
+                </div>
+            </div>
+            `;
+            editor.addNode(
+              "UpdateArrayDialog",
+              1,
+              1,
+              pos_x,
+              pos_y,
+              "UpdateArrayDialog",
+              {},
+              UpdateArrayDialog
+            );
+            break;
+          case "SetPropertyDialog":
+            var SetPropertyDialog = `
+            <div>
+              <div class="title-box"><i class=""></i> SetPropertyDialog</div>
+              <div class="box dbclickbox" ondblclick="showpopup(event)"> Edit
+                
+                <div class="modal" style="display:none">
+                  <div class="modal-content">
+                    <span class="close" onclick="closemodal(event)">&times;</span>
+                    Update Type:
+                    <input type="text" df-updateType>
+                    
+                  </div>
+                </div>
+                </div>
+            </div>
+            `;
+            editor.addNode(
+              "SetPropertyDialog",
+              1,
+              0,
+              pos_x,
+              pos_y,
+              "SetPropertyDialog",
+              {},
+              SetPropertyDialog
+            );
+            break;
+          case "SwitchCaseDialog":
+            var SwitchCaseDialog = `
+            <div>
+              <div class="title-box"><i class=""></i> SwitchCaseDialog </div>
+              <div class="box dbclickbox" ondblclick="showpopup(event)"> Edit
+                
+                <div class="modal" style="display:none">
+                  <div class="modal-content">
+                    <span class="close" onclick="closemodal(event)">&times;</span>
+                    Condition:
+                    <input type="text" placeholder="{$result}" df-condition required>
+                  </div>
+                </div>
+            </div>
+            `;
+            editor.addNode(
+              "SwitchCaseDialog",
+              1,
+              1,
+              pos_x,
+              pos_y,
+              "SwitchCaseDialog",
+              {},
+              SwitchCaseDialog
+            );
+            break;
+
+          case "TextInputDialog":
+            var TextInputDialog = `
+            <div class="title-box"><i class=""></i> TextInputDialog</div>
+            <div class="box dbclickbox" ondblclick="showpopup(event)"> Edit
+                
+                <div class="modal" style="display:none">
+                  <div class="modal-content">
+                    <span class="close" onclick="closemodal(event)">&times;</span>
+                    Question:
+                    <input type="text" df-question>
+                  </div>
+                </div>
+              
+            </div>
+            `;
+            editor.addNode(
+              "TextInputDialog",
+              1,
+              1,
+              pos_x,
+              pos_y,
+              "TextInputDialog",
+              {},
+              TextInputDialog
+            );
+            break;
+          case "ChoiceInputDialog":
+            var ChoiceInputDialog = `
+            
+            <div class="title-box"><i class=""></i> ChoiceInputDialog</div>
+            <div class="box dbclickbox" ondblclick="showpopup(event)"> Edit
+                
+                <div class="modal" style="display:none">
+                  <div class="modal-content">
+                    <span class="close" onclick="closemodal(event)">&times;</span>
+                    Question !
                     <input type="text" df-name>
                   </div>
                 </div>
-              </div>
+              
             </div>
             `;
-            editor.addNode('dbclick', 1, 1, pos_x, pos_y, 'dbclick', { name: ''}, dbclick );
+            editor.addNode(
+              "ChoiceInputDialog",
+              1,
+              1,
+              pos_x,
+              pos_y,
+              "ChoiceInputDialog",
+              {},
+              ChoiceInputDialog
+            );
             break;
 
-        default:
+          default:
+        }
       }
-    }
 
-    var transform = "";
-    function showpopup(e) {
-      e.target.closest(".drawflow-node").style.zIndex = "9999";
-      e.target.children[0].style.display = "block";
-      //document.getElementById("modalfix").style.display = "block";
+      var transform = "";
+      function showpopup(e) {
+        e.target.closest(".drawflow-node").style.zIndex = "9999";
+        e.target.children[0].style.display = "block";
+        //document.getElementById("modalfix").style.display = "block";
 
-      //e.target.children[0].style.transform = 'translate('+translate.x+'px, '+translate.y+'px)';
-      transform = editor.precanvas.style.transform;
-      editor.precanvas.style.transform = "";
-      editor.precanvas.style.left = editor.canvas_x + "px";
-      editor.precanvas.style.top = editor.canvas_y + "px";
-      console.log(transform);
+        //e.target.children[0].style.transform = 'translate('+translate.x+'px, '+translate.y+'px)';
+        transform = editor.precanvas.style.transform;
+        editor.precanvas.style.transform = "";
+        editor.precanvas.style.left = editor.canvas_x + "px";
+        editor.precanvas.style.top = editor.canvas_y + "px";
+        console.log(transform);
 
-      //e.target.children[0].style.top  =  -editor.canvas_y - editor.container.offsetTop +'px';
-      //e.target.children[0].style.left  =  -editor.canvas_x  - editor.container.offsetLeft +'px';
-      editor.editor_mode = "fixed";
-    }
-
-    function closemodal(e) {
-      e.target.closest(".drawflow-node").style.zIndex = "2";
-      e.target.parentElement.parentElement.style.display = "none";
-      //document.getElementById("modalfix").style.display = "none";
-      editor.precanvas.style.transform = transform;
-      editor.precanvas.style.left = "0px";
-      editor.precanvas.style.top = "0px";
-      editor.editor_mode = "edit";
-    }
-
-    function changeModule(event) {
-      var all = document.querySelectorAll(".menu ul li");
-      for (var i = 0; i < all.length; i++) {
-        all[i].classList.remove("selected");
+        //e.target.children[0].style.top  =  -editor.canvas_y - editor.container.offsetTop +'px';
+        //e.target.children[0].style.left  =  -editor.canvas_x  - editor.container.offsetLeft +'px';
+        editor.editor_mode = "fixed";
       }
-      event.target.classList.add("selected");
-    }
 
-    function changeMode(option) {
-      console.log(lock.id);
-      if (option == "lock") {
-        lock.style.display = "none";
-        unlock.style.display = "block";
-      } else {
-        lock.style.display = "block";
-        unlock.style.display = "none";
+      function closemodal(e) {
+        e.target.closest(".drawflow-node").style.zIndex = "2";
+        e.target.parentElement.parentElement.style.display = "none";
+        //document.getElementById("modalfix").style.display = "none";
+        editor.precanvas.style.transform = transform;
+        editor.precanvas.style.left = "0px";
+        editor.precanvas.style.top = "0px";
+        editor.editor_mode = "edit";
       }
-    }
-  </script>
-</body>
 
+      function changeModule(event) {
+        var all = document.querySelectorAll(".menu ul li");
+        for (var i = 0; i < all.length; i++) {
+          all[i].classList.remove("selected");
+        }
+        event.target.classList.add("selected");
+      }
+
+      function changeMode(option) {
+        console.log(lock.id);
+        if (option == "lock") {
+          lock.style.display = "none";
+          unlock.style.display = "block";
+        } else {
+          lock.style.display = "block";
+          unlock.style.display = "none";
+        }
+      }
+    </script>
+  </body>
 </html>
